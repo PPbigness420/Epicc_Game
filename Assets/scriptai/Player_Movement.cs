@@ -42,7 +42,47 @@ public class Player_Movement : MonoBehaviour
         //1 budas
         //gameObject.transform.position = new Vector2(transform.position.x +(x*speedx),transform.position.y+(y*speedy));
         //2budas no workey corectly
-        rb.velocity = new Vector2(x * speedx, y * speedy);
+
+        //jei 2d movemnt
+        //if (transform.position.x>=5f&&x<0f   || transform.position.x <= -5f && x > 0f)
+        //{
+        //    rb.velocity = new Vector2(x * speedx, 0f);
+        //}
+        //else if (transform.position.y >= 5f && y < 0 || transform.position.y <= -5f&&y>0)
+        //{
+        //    rb.velocity = new Vector2(0f, y * speedy);
+        //}
+        //else if (transform.position.x <= -5f|| transform.position.x >= 5f&&transform.position.y<5f&&transform.position.y<-5.5f)
+        //{
+        //    rb.velocity = new Vector2(0f, y * speedy);
+        //}
+        //else if (transform.position.y >= 5f|| transform.position.y <= -5f)
+        //{
+        //    rb.velocity = new Vector2(x * speedx,0f);
+        //}
+        //else
+        //{
+        //    rb.velocity = new Vector2(x * speedx, y * speedy);
+        //}
+
+
+        
+        //1d movemnet(su borders)
+         if (transform.position.x >= 5f && x < 0f || transform.position.x <= -5f && x > 0f)
+        {
+            rb.velocity = new Vector2(x * speedx, 0f);
+        }
+        else if (transform.position.x >= 5f || transform.position.x <= -5f)
+        {
+            rb.velocity = new Vector2(0f, 0f);
+        }
+        else
+        {
+            rb.velocity = new Vector2(x * speedx, 0f);
+        }
+            
+        
+        
         
     }
 }

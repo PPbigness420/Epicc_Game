@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Player_Fire : MonoBehaviour
 {
-    private Rigidbody2D rb;
+    
     //Cooldowns
     public Rigidbody2D Projectile_PreFab;
     public float FireRate;
@@ -14,9 +14,9 @@ public class Player_Fire : MonoBehaviour
     public Transform Fire_PointR;
 
     public float Projectile_Speed;
-    private void Start()
+    private void Awake()
     {
-        rb.GetComponent<Rigidbody2D>();
+        
     }
     void Update()
     {
@@ -40,7 +40,6 @@ public class Player_Fire : MonoBehaviour
                 Fire(WhichGun);
                 WhichGun = !WhichGun;
             }
-            
         }
     }
     void Fire(bool direction)
@@ -55,6 +54,5 @@ public class Player_Fire : MonoBehaviour
             Rigidbody2D rb = Instantiate(Projectile_PreFab, new Vector2(Fire_PointR.position.x, Fire_PointR.position.y), transform.rotation) as Rigidbody2D;
             rb.GetComponent<Rigidbody2D>().AddForce(transform.up * Projectile_Speed * 5f);
         }
-
     }
 }
